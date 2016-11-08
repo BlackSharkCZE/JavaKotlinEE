@@ -7,7 +7,7 @@
 		bean-discovery-mode="all">
 
 	<alternatives>
-
+		<class>com.blackshark.rest.dao.IdentityDaoMock</class>
 	</alternatives>
 
 </beans>
