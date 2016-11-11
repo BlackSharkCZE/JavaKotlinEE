@@ -11,6 +11,9 @@ object Configuration {
 
 	object Rest {
 		const val IDENTITY_ENDPOINT = "identity"
+		const val PARENT_ENDPOINT = "parent-end"
+		const val CHILD_1_ENDPOINT = "child-1"
+		const val CHILD_2_ENDPOINT = "child-2"
 	}
 
 }

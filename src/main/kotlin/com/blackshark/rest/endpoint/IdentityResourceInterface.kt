@@ -1,7 +1,9 @@
 package com.blackshark.rest.endpoint
 
-import org.blackshark.ts.Configuration
+import com.blackshark.rest.domain.CustomSecurityData
 import com.blackshark.rest.domain.Identity
+import org.blackshark.ts.Configuration
+import javax.annotation.security.PermitAll
 import javax.annotation.security.RolesAllowed
 import javax.servlet.http.HttpServletRequest
 import javax.ws.rs.*
@@ -17,6 +19,12 @@ import javax.ws.rs.core.SecurityContext
  */
 @Path(Configuration.Rest.IDENTITY_ENDPOINT)
 interface IdentityResourceInterface {
+
+	@Path("data/inject")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@PermitAll
+	fun processInject(@Context data: CustomSecurityData) : CustomSecurityData
 
 	@Path("{login}")
 	@GET
