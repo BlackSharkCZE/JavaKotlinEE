@@ -1,6 +1,7 @@
 package com.blackshark.rest.endpoint
 
 import com.blackshark.rest.dao.IdentityDaoInterface
+import com.blackshark.rest.domain.CustomSecurityData
 import com.blackshark.rest.domain.Identity
 import javax.ejb.Stateless
 import javax.inject.Inject
@@ -16,6 +17,9 @@ import javax.ws.rs.core.SecurityContext
  */
 @Stateless
 open class IdentityResource @Inject constructor(val iDao: IdentityDaoInterface) : IdentityResourceInterface {
+
+
+	override fun processInject(data: CustomSecurityData): CustomSecurityData = data
 
 	@Throws(NotFoundException::class)
 	override fun getByLogin(login: String, servletRequest: HttpServletRequest, securityContext: SecurityContext?): Identity {
